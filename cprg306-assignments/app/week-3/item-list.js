@@ -78,7 +78,7 @@ export default function ItemList (){
   // ... (repeat for other items)
 
   return (
-    <ul className="divide-y divide-gray-300">
+    <ul className="divide-y divide-blue-300">
       <Item {...item1} />
       <Item {...item2} />
       <Item {...item3} />
