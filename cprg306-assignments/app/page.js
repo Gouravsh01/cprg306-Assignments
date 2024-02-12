@@ -12,6 +12,9 @@ export default function Home() {
         <a href = "http://localhost:3000/week-3">
           Week 3 Assignment
         </a>
+        <a href = "http://localhost:3000/week-4">
+          Week 4 Assignment
+        </a>
       </div>
     </main>
   );
