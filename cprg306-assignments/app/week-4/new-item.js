@@ -1,18 +1,17 @@
 
 
-// Use client directive
 "use client";
 
 import { useState } from "react";
 
-// Initialize state variables
+
 const NewItem = () => {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("Produce");
 
 
-    // Create a function to handle form submission
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -34,7 +33,7 @@ const NewItem = () => {
     };
 
 
-    // Render the component
+
         return (
             <form onSubmit={handleSubmit}>
                 <label>Name:</label>
