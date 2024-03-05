@@ -24,15 +24,15 @@ const NewItem = ({ onAddItem }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div style={{ display: 'flex', flexDirection: 'row', margin: '10px' }}>
-                <label style={{ marginRight: '10px', fontSize: '17px' }}> Item Name: </label>
+            <div style={{ display: 'flex', flexDirection: 'row', margin: '11px' }}>
+                <label style={{ marginRight: '11px', fontSize: '18px' }}> Item Name: </label>
                 <input type="text" value={name} onChange={({target}) => setName(target.value)} 
-                    style={{ color: 'black', borderRadius: '5px', height: '33px' }} required />
+                    style={{ color: 'black', borderRadius: '4px', height: '33px' }} required />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '10px', margin: '20px' }}>
                 <label style={{ marginRight: '10px', fontSize: '17px' }}> Quantity: </label>
-                <input type="number" min="1" max="99" value={quantity} onChange={({target}) => setQuantity(parseInt(target.value))} 
+                <input type="number" min="1" max="100" value={quantity} onChange={({target}) => setQuantity(parseInt(target.value))} 
                     style={{ color: 'black', borderRadius: '5px', paddingLeft: '5px', height: '33px' }} required />
             </div>
 

@@ -26,7 +26,7 @@ const ItemList = ({items}) => {
         transform: sortBy === value ? "scale(1.1)" : "scale(1)",
         transition: "transform 0.3s ease",
         padding: "8px",
-        margin: "5px",
+        margin: "4px",
         width: "100px",
         borderRadius: "5px",
         border: "none",
