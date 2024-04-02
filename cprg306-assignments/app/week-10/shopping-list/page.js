@@ -7,9 +7,9 @@ import MealIdeas from "./meal-ideas";
 import { useUserAuth } from "../_utils/auth-context";
 
 export default function Page() {
-  const [items, setItems] = useState(ItemData);
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState(null);
-  const {user}=useUserAuth()
+  const { user } = useUserAuth();
 
   const addNewItem = (newItem) => {
     setItems((prevItems) => [newItem, ...prevItems]);
@@ -45,4 +45,3 @@ export default function Page() {
     </main>
   );
 }
-
