@@ -3,7 +3,6 @@
 
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link"; 
-import Page from "./shopping-list/page";
 
 const LandingPage = () => {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
@@ -30,8 +29,7 @@ const LandingPage = () => {
         <div>
           <p>Welcome, {user.displayName} ({user.email})</p>
           <button onClick={handleLogout}>Logout</button>
-          {/* Use Link instead of anchor tag if you're using Next.js */}
-          <Link href="<Page />">Go to Shopping List</Link>
+          <Link href="week-10/shopping-list">Go to Shopping List</Link>
         </div>
       ) : (
         <div>
