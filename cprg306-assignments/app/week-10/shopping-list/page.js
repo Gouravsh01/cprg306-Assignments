@@ -7,7 +7,7 @@ import MealIdeas from "./meal-ideas";
 import { useUserAuth } from "../_utils/auth-context";
 
 export default function Page() {
-  const [items, setItems] = useState([]); // Initialize items state to an empty array
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState(null);
   const { user } = useUserAuth();
 
