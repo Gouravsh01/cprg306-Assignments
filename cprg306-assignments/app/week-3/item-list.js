@@ -75,7 +75,7 @@ export default function ItemList (){
         category: "household",
       };
 
-  // ... (repeat for other items)
+
 
   return (
     <ul className="divide-y divide-blue-300">
@@ -91,7 +91,6 @@ export default function ItemList (){
       <Item {...item10} />
       <Item {...item11} />
       <Item {...item12} />
-      {/* Repeat for other items */}
     </ul>
   );
 };

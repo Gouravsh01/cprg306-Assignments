@@ -22,7 +22,7 @@ const ItemList = ({items}) => {
       onClick={() => setSortBy(value)}
       style={{
         backgroundColor: sortBy === value ? "#87CEEB" : "#333",
-        color: "#fff", // Changed to white
+        color: "#fff", 
         transform: sortBy === value ? "scale(1.1)" : "scale(1)",
         transition: "transform 0.3s ease",
         padding: "8px",
