@@ -1,30 +1,29 @@
-"use client";
-
-import { useState } from "react";
+// shopping-list/page.js
+import { useState, useEffect } from "react";
+import { useUserAuth } from "../_utils/auth-context";
+import { getItems, addItem } from "../_services/shopping-list-service";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
-import ItemData from "./items.json";
-import MealIdeas from "./meal-ideas";
+import Link from "next/link";
 
-export default function Page() {
-  const [items, setItems] = useState(ItemData);
-  const [selectedItemName, setSelectedItemName] = useState(null);
+export default function ShoppingListPage() {
+  const { user } = useUserAuth();
+  const [items, setItems] = useState([]);
 
-  const addNewItem = (newItem) => {
-    setItems((prevItems) => [newItem, ...prevItems]);
-  };
+  useEffect(() => {
+    const loadItems = async () => {
+      if (user) {
+        const fetchedItems = await getItems(user.uid);
+        setItems(fetchedItems);
+      }
+    };
+    loadItems();
+  }, [user]);
 
-  const selectItem = (itemName) => {
-    if (typeof itemName === "string") {
-      const cleanedItemName = itemName
-        .replace(
-          /,.*|[\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�]|\p{Emoji}/gu,
-          ""
-        )
-        .trim();
-      setSelectedItemName(cleanedItemName);
-    } else {
-      console.error("Wrong item name:", itemName);
+  const handleAddItem = async (newItem) => {
+    if (user) {
+      const itemId = await addItem(user.uid, newItem);
+      setItems((prevItems) => [...prevItems, { id: itemId, ...newItem }]);
     }
   };
 
@@ -33,14 +32,13 @@ export default function Page() {
       <h1 className="text-3xl font-bold m-2">Shopping List</h1>
       <div className="flex">
         <div className="flex-1 max-w-sm m-2">
-          <NewItem onAddItem={addNewItem} />
-          <ItemList items={items} onItemSelect={selectItem} />
-        </div>
-        <div className="flex-1 max-w-sm m-2 p-3">
-          <h3 className="text-xl font-bold">Meal Ideas</h3>
-          <MealIdeas ingredient={selectedItemName} />
+          <NewItem onAddItem={handleAddItem} />
+          <ItemList items={items} />
         </div>
       </div>
+      <Link href="/">
+        <a>Go to Home</a>
+      </Link>
     </main>
   );
 }

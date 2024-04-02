@@ -1,4 +1,4 @@
-// /components/page.js
+
 
 import Head from 'next/head';
 import ItemList from './item-list';
