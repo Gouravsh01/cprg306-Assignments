@@ -31,7 +31,7 @@ const LandingPage = () => {
           <p>Welcome, {user.displayName} ({user.email})</p>
           <button onClick={handleLogout}>Logout</button>
           {/* Use Link instead of anchor tag if you're using Next.js */}
-          <Link href="<Page />">Go to Shopping List</Link>
+          <Link href="week-10/shopping-list">Go to Shopping List</Link>
         </div>
       ) : (
         <div>
