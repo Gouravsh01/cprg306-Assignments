@@ -8,24 +8,6 @@ import { useUserAuth } from "../_utils/auth-context";
 import { getItems, addItem } from "../_service/shopping-list-service";
 
 export default function Page() {
-  const { user } = useUserAuth();
-  const [items, setItems] = useState([]);
-  const [selectedItemName, setSelectedItemName] = useState(null);
-
-  useEffect(() => {
-    if (user) {
-      loadItems();
-    }
-  }, [user]);
-
-  const loadItems = async () => {
-    try {
-      const userItems = await getItems(user.uid);
-      setItems(userItems);
-    } catch (error) {
-      console.error("Error loading items:", error);
-    }
-  };
 
 
   const addNewItem = (newItem) => {

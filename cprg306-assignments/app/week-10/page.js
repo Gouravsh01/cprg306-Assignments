@@ -3,7 +3,6 @@
 
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link"; 
-import Page from "./shopping-list/page";
 
 const LandingPage = () => {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
