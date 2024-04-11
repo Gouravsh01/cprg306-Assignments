@@ -1,11 +1,10 @@
 import React from "react";
 
-const Item = ({ name, quantity, category }) => {
+const Item = ({ name, quantity, category, onSelect }) => {
   return (
-    <li>
-      <p>{name}</p>
-      <p>Quantity: {quantity}</p>
-      <p>Category: {category}</p>
+    <li className="p-2 m-4 bg-lightgreen max-w-sm hover:bg-green-300 cursor-pointer" onClick={() => onSelect({ name, quantity, category })}>
+      <h2 className="text-xl font-bold">{name}</h2>
+      <span className="text-sm">Buy {quantity} in {category}</span>
     </li>
   );
 };
